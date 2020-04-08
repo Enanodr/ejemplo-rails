@@ -3,6 +3,7 @@
 <%- if notice.present? -%>
   <div class="alert alert-success">
     <%= notice -%>
+    <%=flash[:error] %>
   </div>
 <%- end -%>
 

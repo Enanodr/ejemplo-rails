@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20171130232636) do
 
-  create_table "complaints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "complaints", force: :cascade do |t|
     t.string "email", null: false
     t.bigint "person_id"
     t.text "body"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171130232636) do
     t.index ["person_id"], name: "index_complaints_on_person_id"
   end
 
-  create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "people", force: :cascade do |t|
     t.string "name", limit: 100, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

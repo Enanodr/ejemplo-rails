@@ -19,3 +19,21 @@ Nos han pedido que impongamos algunas restricciones a las publicaciones, a saber
 * El mismo email no puede hacer dos publicaciones en el mismo día.
 * El texto debe tener al menos 10 caracteres, pero no más de 500.
 * En toda publicación debe indicarse qué vendedor atendió a quien la escribe.
+
+
+
+## Instalacion
+#### instalar postgres y setup
+
+> sudo -u postgres psql -c "CREATE ROLE complains-maker SUPERUSER PASSWORD 'complains-maker'"
+> sudo -u postgres createdb -O complains-maker complains-maker 
+
+#### Setup proyecto rails
+```gem install bundler```
+
+```bundle -j 20```
+
+```bundle exec rails db:create db:migrate db:seed```
+
+#### Correr proyecto
+```bundle exec rails server```
